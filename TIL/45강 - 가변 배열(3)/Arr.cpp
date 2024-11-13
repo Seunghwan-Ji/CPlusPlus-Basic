@@ -11,6 +11,7 @@ void InitArr(tArr* _pArr)
 	_pArr->iMaxCount = 2; // 8바이트는 int형 2칸이므로, 한계치 사이즈 2로 설정.
 }
 
+// 공간 추가 확장 함수
 void Reallocate(tArr* _pArr)
 {
 	// 배열을 공부할 때 인덱스를 초과하여 값을 넣으면, 프로그래머가 의도하지 않은 문제가 발생할 수 있었다.
