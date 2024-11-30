@@ -23,6 +23,9 @@ public:
 	iterator end();
 	iterator erase(iterator& _iter);
 
+	void clear() { m_iCount = 0; } // 기존에 쌓여있던 데이터들을 무시하고 첫 칸 부터 데이터를 다시 채운다.
+	// 대신에 늘어나 있던 공간은 줄어들지 않는다.
+
 public:
 	CArr();
 	~CArr();
@@ -189,7 +192,7 @@ typename CArr<T>::iterator CArr<T>::erase(iterator& _iter)
 	// 원래 가리키던 데이터가 제거 되었으므로
 	// 훼손된 iterator 로 간주하기로 한다.
 
-// 카운트 감소
+	// 카운트 감소
 	--m_iCount;
 
 	return iterator(this, m_pData, _iter.m_iIdx);
