@@ -243,6 +243,14 @@ inline typename CList<T>::iterator CList<T>::end()
 }
 
 template<typename T>
+inline typename CList<T>::iterator CList<T>::erase(iterator& _iter)
+{
+	// 과제: erase 함수 구현
+
+	return iterator();
+}
+
+template<typename T>
 inline typename CList<T>::iterator CList<T>::insert(const iterator& _iter, const T& _data)
 {
 	if (end() == _iter)
@@ -277,5 +285,5 @@ inline typename CList<T>::iterator CList<T>::insert(const iterator& _iter, const
 		pNode->pNext = _iter.m_pNode;
 	}
 
-	return iterator();
+	return iterator(this, pNode);
 }
