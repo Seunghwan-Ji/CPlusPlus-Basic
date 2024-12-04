@@ -29,6 +29,7 @@
 inline int Add(int a, int b) {
     return a + b;
 }
+```
 
 - 함수 앞에 inline 키워드를 붙이면 됩니다.
 - 보통 간단하고 짧은 코드를 가진 함수에 사용합니다.
@@ -52,6 +53,7 @@ inline int Add(int a, int b) {
 #define SQUARE(x) ((x) * (x))
 
 int result = SQUARE(1 + 2); // ((1 + 2) * (1 + 2)) = 9 (예상치 못한 결과)
+```
 
 ### **`inline` 함수로 대체
 ```cpp
@@ -60,6 +62,7 @@ inline int Square(int x) {
 }
 
 int result = Square(1 + 2); // (1 + 2) * (1 + 2) = 9 (예상한 결과)
+```
 
 - 매크로는 단순히 텍스트 치환 방식이므로 예기치 않은 결과를 초래할 수 있지만, **`inline` 함수는 타입 안정성과 코드 안정성을 제공합니다.
 
