@@ -40,11 +40,11 @@ int main()
 	// 컴파일러가 문법적으로 보정을 해준 것이다.
 	// 단, '->' 연산자 오퍼레이터 함수의 반환값이 주소값일 경우만 보정된다.
 
-	/*bstIter = bstInt.begin();
+	// 중위 순회 출력 테스트
 	for (bstIter = bstInt.begin(); bstIter != bstInt.end(); ++bstIter)
 	{
-		wcout << bstIter->first << bstIter->second << endl;
-	}*/
+		wcout << bstIter->first << " " << bstIter->second << endl;
+	}
 
 	return 0;
 }

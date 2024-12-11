@@ -84,10 +84,10 @@ public:
 	bool insert(const tPair<T1, T2>& _pair); // 데이터 추가 함수
 
 	// 인자로 받은 노드의 중위 후속자 노드를 주는 함수.
-	tBSTNode<T1, T2>* GetInOrderSuccessor(tBSTNode<T1, T2> _pNode);
+	tBSTNode<T1, T2>* GetInOrderSuccessor(tBSTNode<T1, T2>* _pNode);
 
 	// 인자로 받은 노드의 중위 선행자 노드를 주는 함수.
-	tBSTNode<T1, T2>* GetInOrderPredecessor(tBSTNode<T1, T2> _pNode);
+	tBSTNode<T1, T2>* GetInOrderPredecessor(tBSTNode<T1, T2>* _pNode);
 
 public:
 	class iterator;
@@ -135,20 +135,20 @@ public:
 		{
 			assert(m_pNode);
 			return &m_pNode->pair; // 이 함수의 반환 타입이 포인터 자료형이므로,
-			// 주소값을 준다.
+			                       // 주소값을 준다.
 
-// 포인터 기본 문법 복습
-/*
-tPair<int, int> pair;
-tPair<int, int>* pPair = &pair;
-pPair->first;
-pPair->second;
-*/
+			// 포인터 기본 문법 복습
+			/*
+			tPair<int, int> pair;
+			tPair<int, int>* pPair = &pair;
+			pPair->first;
+			pPair->second;
+			*/
 		}
 
 		iterator& operator ++()
 		{
-			// m_pNode = m_pBST->GetInOrderSuccessor(m_pNode);
+			m_pNode = m_pBST->GetInOrderSuccessor(m_pNode);
 			return *this;
 		}
 
@@ -172,11 +172,6 @@ template<typename T1, typename T2>
 inline bool CBST<T1, T2>::insert(const tPair<T1, T2>& _pair)
 {
 	tBSTNode<T1, T2>* pNewNode = new tBSTNode<T1, T2>(_pair, nullptr, nullptr, nullptr);
-	/*pNewNode->pair = _pair;
-	pNewNode->pParent = nullptr;
-	pNewNode->pLeftChild = nullptr;
-	pNewNode->pRightChild = nullptr;*/
-	// tBSTNode 생성자를 만들었기 때문에 이 구문은 지운다.
 
 	// 처음 들어온 데이터일 경우
 	if (nullptr == m_pRoot)
@@ -222,13 +217,7 @@ inline bool CBST<T1, T2>::insert(const tPair<T1, T2>& _pair)
 }
 
 template<typename T1, typename T2>
-inline tBSTNode<T1, T2>* CBST<T1, T2>::GetInOrderSuccessor(tBSTNode<T1, T2> _pNode)
-{
-	return nullptr;
-}
-
-template<typename T1, typename T2>
-inline tBSTNode<T1, T2>* CBST<T1, T2>::GetInOrderPredecessor(tBSTNode<T1, T2> _pNode)
+inline tBSTNode<T1, T2>* CBST<T1, T2>::GetInOrderSuccessor(tBSTNode<T1, T2>* _pNode)
 {
 	tBSTNode<T1, T2>* pSuccesor = nullptr; // 초기 중위 후속자.
 
@@ -270,6 +259,12 @@ inline tBSTNode<T1, T2>* CBST<T1, T2>::GetInOrderPredecessor(tBSTNode<T1, T2> _p
 	}
 
 	return pSuccesor;
+}
+
+template<typename T1, typename T2>
+inline tBSTNode<T1, T2>* CBST<T1, T2>::GetInOrderPredecessor(tBSTNode<T1, T2>* _pNode)
+{
+	return nullptr;
 }
 
 // 함수를 헤더에 작성할 경우 자동으로 inline 처리되기 때문에
