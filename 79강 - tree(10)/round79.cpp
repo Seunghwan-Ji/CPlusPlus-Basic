@@ -30,6 +30,7 @@ int main()
 	bstInt.insert(make_bstPair(125, 0));
 	bstInt.insert(make_bstPair(175, 0));
 
+	// 삭제한 노드 자리를 중위 선행자 또는 중위 후속자 노드로 갱신하면, 중위 순회의 특성을 유지할 수 있다.
 	// 중위 선행자와 중위 후속자는 자식이 하나 또는 없는 경우 밖에 없다.
 
 	CBST<int, int>::iterator bstIter;
