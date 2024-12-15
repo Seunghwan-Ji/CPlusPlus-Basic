@@ -40,5 +40,4 @@ int main()
 	                      // iStatus 변수에 1이 저장된다.
 
 	return 0;
-
 }
