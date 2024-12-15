@@ -3,9 +3,9 @@
 
 크기 단위:
 1024 byte = 1 KB (1024 = 2의 10제곱)
-1024 KB = 1 MB
-1024 MB = 1 GB
-1024 GB = 1 TB
+1024 KB   = 1 MB
+1024 MB   = 1 GB
+1024 GB   = 1 TB
 
 1 TB는 몇 byte일까?
 1 TB = 1024 GB
