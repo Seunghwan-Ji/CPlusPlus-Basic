@@ -19,5 +19,4 @@ int main()
 	scanf_s("%d", &iInput); // scanf 함수 사용 양식
 
 	return 0;
-
 }
